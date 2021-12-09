@@ -66,7 +66,6 @@ new Promise
  let theCofeeArray = [];
  let theCofees = data.toString();
  let theNewCofees =  theCofees.split(/\r?\n/);
- theNewCofeesAtTop.push(theNewCofees);
     for (var theCofee of theNewCofees) {
         theNewCofeesAtTop.push(theCofee);
     }
