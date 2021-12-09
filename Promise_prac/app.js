@@ -24,3 +24,13 @@ new Promise
 .catch(err => {
     console.log(err);
 });
+
+
+const jsDevs = developers.filter(d => d.favoriteLanguage === "Javascript");
+
+jsDevs.map(d => {
+    d.firstName = d.fullName.split(" ")[0];
+    d.lastName = d.fullName.split(" ")[1];
+    delete d.fullName;
+    return d;
+}).reduce((acc, dev) => acc + dev.salary, 0) / jsDevs.length;
