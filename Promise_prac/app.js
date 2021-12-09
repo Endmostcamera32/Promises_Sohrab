@@ -45,6 +45,7 @@ jsDevs.map(d => {
 const fs = require('fs');
 const parser = require('parse-json');
 
+theNewCofeesAtTop = []
 
 
 
@@ -65,6 +66,14 @@ new Promise
  let theCofeeArray = [];
  let theCofees = data.toString();
  let theNewCofees =  theCofees.split(/\r?\n/);
+ theNewCofeesAtTop.push(theNewCofees);
+    for (var theCofee of theNewCofees) {
+        theNewCofeesAtTop.push(theCofee);
+    }
+
+
+
+ /*
  console.log(typeof(theCofees));
  console.log(theNewCofees);
     function viewAllSupply(kindOfCofee) {
@@ -72,13 +81,40 @@ new Promise
         return anArrayWithOnlyTheKindOFCofeeInput.length;
     }
 console.log(viewAllSupply("blonde"));
+*/
 })
 .then(data => {
+/*
     function addSupply(kindOfCofee) {
         fs.appendFile("./supply.txt",`\n${kindOfCofee}`, cb2);
     }
 
 addSupply("yeye");
+*/
+})
+.then(data => {
+
+
+    // all the functions: 
+
+console.log(theNewCofeesAtTop);
+
+function viewAllSupply(kindOfCofee) {
+    let anArrayWithOnlyTheKindOFCofeeInput = theNewCofeesAtTop.filter(m => m === kindOfCofee)
+    return anArrayWithOnlyTheKindOFCofeeInput.length;
+}
+console.log(viewAllSupply("blonde"));
+
+
+// the second function: 
+
+function addSupply(kindOfCofee) {
+    fs.appendFile("./supply.txt",`\n${kindOfCofee}`, cb2);
+}
+
+addSupply("blonde");
+
+
 })
 
 .catch(err => {
@@ -96,4 +132,31 @@ function cb2(err, data) {
         console.log("Good job")
     }
 }
+
+
+
+/*
+
+// all the functions: 
+
+console.log(theNewCofeesAtTop);
+
+function viewAllSupply(kindOfCofee) {
+    let anArrayWithOnlyTheKindOFCofeeInput = theNewCofeesAtTop.filter(m => m === kindOfCofee)
+    return anArrayWithOnlyTheKindOFCofeeInput.length;
+}
+console.log(viewAllSupply("blonde"));
+
+
+// the second function: 
+
+function addSupply(kindOfCofee) {
+    fs.appendFile("./supply.txt",`\n${kindOfCofee}`, cb2);
+}
+
+addSupply("yeye");
+
+*/
+
+
 
