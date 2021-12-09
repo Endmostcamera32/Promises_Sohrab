@@ -25,6 +25,7 @@ new Promise
     console.log(err);
 });
 
+// q1 of the mock exam:
 
 const jsDevs = developers.filter(d => d.favoriteLanguage === "Javascript");
 
@@ -35,7 +36,7 @@ jsDevs.map(d => {
     return d;
 }).reduce((acc, dev) => acc + dev.salary, 0) / jsDevs.length;
 
-
+// the end of q1 mock exam
 
 
 
